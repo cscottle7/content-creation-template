@@ -1,0 +1,10 @@
+{
+    "servers": [
+      {
+        "name": "composite-pr-creator-service",
+        "command": "npx",
+        "args": ["ts-node", "src/server.ts"],
+        "cwd": "C:\Users\cscot\Documents\Apps\MCP"
+      }
+    ]
+  }
