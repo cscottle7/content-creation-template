@@ -1,13 +1,17 @@
 import { Metadata } from 'next'
+import { StructuredData } from '@/components/seo/StructuredData'
+import { generateMetadata, generateBreadcrumbSchema, pageSEOConfigs } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Contact The Bigger Boss - Get in Touch',
-  description: 'Get in touch with our team for support, sales inquiries, or to learn more about AI content strategy.',
-}
+export const metadata: Metadata = generateMetadata(pageSEOConfigs.contact)
 
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-6 py-16">
+      {/* Structured Data for SEO */}
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" }
+      ])} />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h1>
         

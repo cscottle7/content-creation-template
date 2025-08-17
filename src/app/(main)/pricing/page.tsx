@@ -1,13 +1,17 @@
 import { Metadata } from 'next'
+import { StructuredData } from '@/components/seo/StructuredData'
+import { generateMetadata, generateBreadcrumbSchema, pageSEOConfigs } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Pricing - The Bigger Boss AI Content Strategy',
-  description: 'Transparent pricing for AI-powered content strategy. Choose the plan that fits your business needs.',
-}
+export const metadata: Metadata = generateMetadata(pageSEOConfigs.pricing)
 
 export default function PricingPage() {
   return (
     <div className="container mx-auto px-6 py-16">
+      {/* Structured Data for SEO */}
+      <StructuredData data={generateBreadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Pricing", url: "/pricing" }
+      ])} />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h1>
@@ -20,7 +24,7 @@ export default function PricingPage() {
           {/* Starter Plan */}
           <div className="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Starter</h2>
               <div className="text-4xl font-bold text-blue-600 mb-2">$297</div>
               <p className="text-gray-600">per month</p>
             </div>
@@ -58,7 +62,7 @@ export default function PricingPage() {
             </div>
             
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Professional</h3>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Professional</h2>
               <div className="text-4xl font-bold text-blue-600 mb-2">$597</div>
               <p className="text-gray-600">per month</p>
             </div>
@@ -94,7 +98,7 @@ export default function PricingPage() {
           {/* Enterprise Plan */}
           <div className="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Enterprise</h2>
               <div className="text-4xl font-bold text-blue-600 mb-2">$1,197</div>
               <p className="text-gray-600">per month</p>
             </div>

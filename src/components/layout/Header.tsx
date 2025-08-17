@@ -5,10 +5,28 @@ import { useState } from 'react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm border-b">
-      <nav className="container mx-auto px-6 py-4">
+    <>
+      {/* Skip Links for Accessibility */}
+      <div className="skip-links">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50"
+        >
+          Skip to main content
+        </a>
+        <a 
+          href="#main-navigation" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-32 bg-blue-600 text-white px-4 py-2 rounded z-50"
+        >
+          Skip to navigation
+        </a>
+      </div>
+      
+      <header className="bg-white shadow-sm border-b" role="banner">
+        <nav id="main-navigation" className="container mx-auto px-6 py-4" role="navigation" aria-label="Main navigation">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-gray-900">
@@ -19,18 +37,45 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600 font-medium">
+              <button 
+                className="text-gray-700 hover:text-blue-600 font-medium flex items-center"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+                data-testid="solutions-dropdown-trigger"
+              >
                 Solutions
+                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link href="/solutions/for-smbs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+              <div 
+                className={`absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg transition-all duration-200 z-50 ${
+                  isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+                data-testid="solutions-dropdown-menu"
+              >
+                <Link 
+                  href="/solutions/for-smbs" 
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  data-testid="nav-smb-link"
+                >
                   For SMBs
                 </Link>
-                <Link href="/solutions/for-agencies" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+                <Link 
+                  href="/solutions/for-agencies" 
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  data-testid="nav-agency-link"
+                >
                   For Agencies
                 </Link>
               </div>
             </div>
+            <Link href="/resources" className="text-gray-700 hover:text-blue-600 font-medium">
+              Resources
+            </Link>
             <Link href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium">
               Pricing
             </Link>
@@ -69,6 +114,9 @@ export default function Header() {
               <Link href="/solutions/for-agencies" className="text-gray-700 hover:text-blue-600">
                 Solutions for Agencies
               </Link>
+              <Link href="/resources" className="text-gray-700 hover:text-blue-600">
+                Resources
+              </Link>
               <Link href="/pricing" className="text-gray-700 hover:text-blue-600">
                 Pricing
               </Link>
@@ -86,5 +134,6 @@ export default function Header() {
         )}
       </nav>
     </header>
+    </>
   )
 }
