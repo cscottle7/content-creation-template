@@ -1,0 +1,33 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "ms-vscode.vscode-json",
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.atom-keybindings",
+    "gruntfuggly.todo-tree",
+    "streetsidesoftware.code-spell-checker",
+    "ms-vscode-remote.remote-containers",
+    "github.copilot",
+    "github.copilot-chat",
+    "ms-playwright.playwright",
+    "humao.rest-client",
+    "johnpapa.vscode-peacock",
+    "oderwat.indent-rainbow",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-vscode.hexeditor",
+    "redhat.vscode-yaml",
+    "ms-vscode.powershell"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify",
+    "ms-vscode.sublime-keybindings"
+  ]
+}

@@ -12,7 +12,19 @@
       "Bash(npm install:*)",
       "Bash(npx tailwindcss init:*)",
       "Bash(mkdir:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "mcp__ide__getDiagnostics",
+      "mcp__ide__executeCode",
+      "Bash(npx playwright test:*)",
+      "Bash(npx playwright:*)",
+      "Bash(node:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(npm run clean:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }

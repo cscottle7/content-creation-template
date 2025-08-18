@@ -11,7 +11,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:prod": "bash scripts/deploy.sh production",
+    "vercel:login": "vercel login",
+    "vercel:env": "vercel env ls",
+    "analyze": "cross-env ANALYZE=true next build",
+    "clean": "rm -rf .next out"
   },
   "repository": {
     "type": "git",
@@ -26,27 +32,37 @@
   },
   "homepage": "https://github.com/cscottle7/content-creation-template#readme",
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.2.1",
+    "@playwright/test": "^1.54.2",
+    "@radix-ui/react-slot": "^1.2.3",
     "@react-three/drei": "^10.7.0",
     "@react-three/fiber": "^9.3.0",
-    "@tailwindcss/postcss": "^4.1.12",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
+    "lucide-react": "^0.539.0",
     "next": "^15.4.6",
     "postcss": "^8.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-hook-form": "^7.62.0",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.12",
+    "tailwindcss": "^3.4.17",
     "three": "^0.179.1",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@types/three": "^0.179.0",
+    "cross-env": "^10.0.0",
     "eslint": "^9.33.0",
-    "eslint-config-next": "^15.4.6"
+    "eslint-config-next": "^15.4.6",
+    "playwright": "^1.54.2"
   }
 }
